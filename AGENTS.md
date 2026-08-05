@@ -18,8 +18,9 @@ Both dev servers must run at the same time (in separate terminals/tmux sessions)
 
 ### Non-obvious caveats
 
-- Full resume tailoring requires a real Anthropic key. Set it as a local Worker secret in `apps/worker/.dev.vars` as `ANTHROPIC_API_KEY=sk-ant-...` (this file is intentionally not committed). Without it, `POST /api/tailor` reaches Anthropic and returns `{"error":"invalid x-api-key"}`. `GET /api/health` returns `{"ok":true}` and needs no key.
-- `wrangler dev` does NOT hot-reload changes to `apps/worker/.dev.vars`. After creating/editing that file, restart the worker dev server for the new value to take effect. (Source changes in `apps/worker/src` do hot-reload.)
-- PDF text extraction happens entirely client-side via `pdfjs-dist`; use a searchable-text PDF (scanned/image-only PDFs won't extract).
-- The master resume is persisted only in browser `localStorage`; there is no backend storage, accounts, or DB.
-- Known pre-existing bug (not an environment issue): the browser tailor flow sends a CORS preflight `OPTIONS` to the worker, and the current `OPTIONS` handler in `apps/worker/src/index.ts` returns a `204` with a JSON body, which is an invalid response and makes the browser fail with "Failed to fetch". Direct `curl` to `POST /api/tailor` still works. To exercise the flow in a browser, the `OPTIONS` branch needs to return a body-less `204` (e.g. `new Response(null,{status:204,headers:{...}})`).
+- Full resume tailoring requires a real Anthropic key. Put it in `apps/worker/.dev.vars` as `ANTHROPIC_API_KEY=...` (gitignored; never commit). If the cloud env already exports `ANTHROPIC_API_KEY`, write it into that file before starting the worker: `printf 'ANTHROPIC_API_KEY=%s\n' "$ANTHROPIC_API_KEY" > apps/worker/.dev.vars`. Without it, `POST /api/tailor` returns an Anthropic auth error. `GET /api/health` returns `{"ok":true}` with no key.
+- `wrangler dev` does **not** hot-reload `.dev.vars`. Restart the worker after creating/editing that file. Source changes under `apps/worker/src` do hot-reload.
+- The worker model id is `claude-sonnet-4-6`. Older ids like `claude-sonnet-4-20250514` return Anthropic `not_found_error` for current keys — check `GET https://api.anthropic.com/v1/models` if tailor starts failing with a model error.
+- Browser CORS preflight requires a body-less `204` on `OPTIONS` (already fixed in `apps/worker/src/index.ts`). Returning `json({}, 204, …)` breaks the browser tailor flow with "Failed to fetch" even though `curl` still works.
+- PDF text extraction is client-side via `pdfjs-dist`; use a searchable-text PDF (image-only scans will not extract).
+- The master resume lives only in browser `localStorage`; there is no backend storage, accounts, or DB.
