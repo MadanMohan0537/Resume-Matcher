@@ -1,96 +1,30 @@
-# 📄 Personal Resume Matcher — AI Resume Tailoring App
+# Resume tailor (Cursor)
 
-<p align="center">
-  <strong>A private, serverless resume tailoring app powered by Cloudflare Pages, Cloudflare Workers, and Anthropic Claude.</strong>
-</p>
+Paste a job description in Cursor. The agent writes a **one-page** resume aimed at that job and saves it under `tailored/`. The summary is 2 to 3 lines, never more.
 
-<p align="center">
-  <a href="#license"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License"></a>
-  <a href="https://workers.cloudflare.com"><img src="https://img.shields.io/badge/Deployment-Cloudflare%20Workers%20%2B%20Pages-f38020?style=flat-square&logo=cloudflare" alt="Cloudflare"></a>
-  <a href="https://react.dev"><img src="https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61dafb?style=flat-square&logo=react" alt="React"></a>
-  <a href="https://anthropic.com"><img src="https://img.shields.io/badge/AI-Anthropic%20Claude-blueviolet?style=flat-square&logo=anthropic" alt="Anthropic Claude"></a>
-</p>
+It keeps your employers, titles, and dates from `resume/MASTER.md`. It may add bullets, skills, and project lines the posting needs so a hiring manager would take the candidate seriously. Prose stays human: no buzzwords, no dashes.
 
----
+`resume/MASTER.md` is already filled with the ideal resume. Edit it there if facts change.
 
-## 📌 Overview
+## Setup
 
-**Personal Resume Matcher** is a private, client-side first application designed to match and tailor master resumes against target Job Descriptions. Adapted from the core principles of the open-source [Resume Matcher](https://github.com/srbhr/Resume-Matcher), this architecture is engineered for **strict single-user privacy, serverless edge speed, and zero database overhead**.
+1. Keep `resume/MASTER.md` current (this is the source of truth).
+2. Optionally edit voice, must-keep bullets, and limits in `resume/PROFILE.md`.
 
----
+You can also paste an updated resume in Cursor chat and say **save this as the master resume**.
 
-## ✨ Key Features
+## Daily use
 
-- **🔒 Client-Side PDF Parsing:** Master resume PDFs are extracted and parsed directly in your browser session using `pdf.js` — your private CV data is never uploaded to an external database.
-- **🎯 Truth-Grounded XYZ Tailoring:** Reformulates verified accomplishments using target JD keywords without fabricating unverified metrics or credentials.
-- **⚡ Protected Serverless Edge API:** Deployed on **Cloudflare Workers**, protecting your Anthropic API key behind encrypted runtime secrets so credentials never touch the browser.
-- **📄 Instant PDF Download:** Produces an ATS-friendly, single-column formatted PDF ready for immediate job application submissions.
+1. In Cursor chat, paste a job description, or save it under `jobs/` as a `.md` / `.txt` file.
+2. Ask: **tailor my resume to this JD**.
+3. Open the new file: `tailored/<company>-<role>-YYYY-MM-DD.md`.
+4. Read the agent's recap: what changed, what was added, and which keywords were emphasized.
 
----
+## Layout
 
-## 🏗️ Architecture
-
-```mermaid
-flowchart LR
-    A[Master Resume PDF] -->|Client-side PDF.js| B[Browser UI <br>Cloudflare Pages]
-    C[Job Description URL / Text] --> B
-    B -->|Encrypted Payload| D[Cloudflare Worker API]
-    D -->|Protected Secret| E[Anthropic Claude API]
-    E -->|Structured Tailoring Strategy| D
-    D --> B
-    B --> F[ATS-Optimized Tailored PDF Download]
 ```
-
----
-
-## 🚀 Quick Start & Deployment
-
-### 1. Repository Structure
-- `apps/web`: React + Vite single-page application (Cloudflare Pages).
-- `apps/worker`: Cloudflare Worker API proxy and prompt engine.
-
-### 2. Deploy the Worker API
-
-```bash
-# Clone the repository
-git clone https://github.com/MadanMohan0537/Resume-Matcher.git
-cd Resume-Matcher
-
-# Deploy Worker
-cd apps/worker
-npm install
-npx wrangler secret put ANTHROPIC_API_KEY
-npx wrangler deploy
+resume/MASTER.md     source of truth (you edit this)
+resume/PROFILE.md    voice and constraints the agent must honor
+jobs/                optional JD drop folder
+tailored/            generated resumes, one per application
 ```
-
-### 3. Deploy the Frontend (Cloudflare Pages)
-
-Connect the repository in Cloudflare Pages:
-- **Root Directory:** `apps/web`
-- **Build Command:** `npm run build`
-- **Output Directory:** `dist`
-- **Environment Variable:** `VITE_API_URL=https://resume-matcher-api.<your-subdomain>.workers.dev`
-
-### 4. Local Development
-
-```bash
-# Terminal 1: Run Worker locally
-cd apps/worker && npm run dev
-
-# Terminal 2: Run Web Frontend
-cd apps/web && npm run dev
-```
-
----
-
-## 🛡️ Privacy & Security Design
-
-1. **Zero Database Retention:** No applicant tracking data or master resumes are stored on a server.
-2. **Encrypted Runtime Secrets:** Anthropic API keys are bound as Cloudflare runtime secrets.
-3. **SSRF Guard:** Worker URL fetching blocks local network IPs and loops.
-
----
-
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
