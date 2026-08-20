@@ -8,7 +8,9 @@ import './styles.css';
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 const API = import.meta.env.VITE_API_URL || 'http://localhost:8787';
 
-type Resume = {name:string; contact:string; summary:string; skills:string[]; experience:{heading:string; bullets:string[]}[]; education:string[]; certifications?:string[]};
+type Resume = {name:string; contact:string; summary:string; skills:string[]; experience:{heading:string; bullets:string[]}[]; projects?:{name:string; detail:string}[]; education:string[]; certifications?:string[]};
+
+const noDash = (s:string)=>s.replace(/[\u2013\u2014\u2212]/g, ', ').replace(/\s+/g,' ').trim();
 
 async function extractPdf(file: File) {
   const pdf = await pdfjs.getDocument({data: await file.arrayBuffer()}).promise;
@@ -22,11 +24,12 @@ async function extractPdf(file: File) {
 
 function downloadPdf(r:Resume){
   const doc=new jsPDF({unit:'pt',format:'letter'}); let y=38; const left=36, width=540;
-  const line=(text:string,size=9,bold=false,gap=11)=>{doc.setFont('helvetica',bold?'bold':'normal');doc.setFontSize(size);const lines=doc.splitTextToSize(text,width);doc.text(lines,left,y);y+=lines.length*gap;};
+  const line=(text:string,size=9,bold=false,gap=11)=>{doc.setFont('helvetica',bold?'bold':'normal');doc.setFontSize(size);const lines=doc.splitTextToSize(noDash(text),width);doc.text(lines,left,y);y+=lines.length*gap;};
   const section=(title:string)=>{y+=4;line(title.toUpperCase(),10,true,12);doc.setLineWidth(.5);doc.line(left,y-8,576,y-8);};
   doc.setTextColor(20,20,20); line(r.name,16,true,17); line(r.contact,8,false,10); section('Professional Summary');line(r.summary,9,false,11);section('Core Skills');line(r.skills.join(' • '),8.5,false,10);
   section('Professional Experience');
   for(const role of r.experience){line(role.heading,9,true,11);for(const b of role.bullets)line('• '+b,8.5,false,10);}
+  if(r.projects?.length){section('Selected Projects');for(const p of r.projects)line(`${p.name}: ${p.detail}`,8.5,false,10);}
   section('Education');for(const e of r.education)line(e,8.5,false,10);
   if(r.certifications?.length){section('Certifications');line(r.certifications.join(' • '),8.5,false,10);}
   if(y>756){alert('The generated resume exceeds one page. Ask Claude to shorten it and tailor again.');return;}
