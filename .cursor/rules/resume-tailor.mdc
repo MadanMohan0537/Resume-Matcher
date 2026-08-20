@@ -37,9 +37,8 @@ If they paste resume content and say to save it as the master (or "this is my re
 - **Fit first.** The tailored resume should read as if this person is a strong hire for that posting.
 - **You may add points that are not in MASTER.** Invent or upgrade bullets, skills, summary lines, and project lines when a hiring manager would expect them.
 - **Keep the employment skeleton** from MASTER when it exists: employers, titles, and dates. Hang new bullets on those real jobs. Do not invent extra employers if MASTER already has a career history.
+- **One page. Always.** Not two. Tight writing. Drop or compress lower-priority bullets rather than overflowing.
+- **Summary: 2 to 3 lines, never more than 3.** Prefer 2 if a third line would ramble. No paragraph dumps.
 - **No AI slop.** No buzzwords. No dashes in resume prose (no em dash, no en dash, no "X - Y" constructions). Vary sentence rhythm. Use concrete, plausible details.
 - Honor `resume/PROFILE.md` voice and any must-keep or banned lines the user listed.
-
-## Placeholders
-
-If MASTER still has `[BRACKET PLACEHOLDERS]` or `EXAMPLE` bullets, warn the user, still produce a tailored resume that shows the mapping, and tell them to paste their real resume into `resume/MASTER.md` so later versions keep their real employers, titles, and dates.
+- `resume/MASTER.md` is the filled ideal resume. Use it as the source of truth for structure and voice. Do not treat it as a blank template.

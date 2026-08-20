@@ -18,8 +18,7 @@ When the user pastes a resume and asks to save it as the master, follow `.cursor
 - Build the ideal resume for that job. Think like the hiring manager filling that seat.
 - You may add responsibilities, skills, summary lines, and accomplishments that are not in MASTER when the JD needs them.
 - Keep the employment skeleton from MASTER when it exists (employers, titles, dates). Hang new bullets on those jobs.
+- **One page. Always.** Drop or compress lower-priority bullets rather than overflowing.
+- **Summary: 2 to 3 lines, never more than 3.** Prefer 2 if 3 would ramble.
 - No AI slop. No buzzwords. No dashes in resume prose (no em dash, no en dash, no "X - Y"). Vary rhythm. Use concrete details.
-
-## Placeholders
-
-If `resume/MASTER.md` still contains `[PLACEHOLDERS]` or example bullets, warn the user, still produce a tailored resume that shows the mapping, and tell them to paste their real resume into `resume/MASTER.md`.
+- `resume/MASTER.md` is the filled ideal resume. Use it as the source of truth. Do not treat it as a blank template.

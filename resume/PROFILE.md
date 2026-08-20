@@ -1,46 +1,47 @@
 # Profile, voice, constraints, and guardrails
 
-Fill this in so every tailored resume sounds like you. The agent must honor this file.
+`resume/MASTER.md` is the ideal resume. Treat it as the source of truth for structure, voice, employers, titles, dates, skills, and accomplishments. Tailored files should stay as close to it as the JD allows, then add or retune points only when the posting needs them.
 
 ## Voice
 
-- Implied first person. No "I", no "we" unless the master resume already uses it.
-- Direct and specific. Plain verbs: built, shipped, reduced, owned, designed, migrated, wrote, fixed.
+- Implied first person. No "I", no "we" unless MASTER already uses it.
+- Keep Madan's wording when a bullet already fits. Direct, specific, operational.
+- Plain verbs: built, wrote, tracked, investigated, standardized, analyzed, translated, coordinated.
 - No buzzwords. No dashes in resume prose (no em dash, no en dash, no "X - Y").
 - Vary sentence rhythm. Specific artifacts over vague claims.
 
-## Length
+## Length (hard limits)
 
-- Default: one page (early / mid career).
-- Two pages only if the master resume is already that long or you ask.
-- Typical target: 3 to 5 bullets on the most recent role, 2 to 3 on older roles.
+- **One page. Always.** Not two. Tight writing. Drop or compress lower-priority bullets rather than overflowing.
+- **Summary: 2 to 3 lines, never more than 3.** Prefer 2 if 3 would ramble. No paragraph dumps.
+- Typical target: 3 bullets on the most recent role, 2 to 3 on older roles, short project lines.
 
-## Must-keep bullets
+## Must-keep (unless the page would overflow)
 
-List any lines that should survive even if the JD is not a perfect match.
+- Citi: Jira/Slack monitoring dashboards and the 10% drop in ad hoc status requests.
+- Citi: LLM evaluation and prompt-testing investigations with engineering, ML, product, and QA.
+- Ants Corp: client onboarding cut from 2 weeks to 8 days.
+- CAPM and Microsoft Fabric Data Engineer.
+- Keep employers, titles, and dates exactly: Citi Bank, Ants Corp, NaviSite.
 
-- [e.g. Keep the payments migration bullet. It is the strongest proof of ownership.]
-- [Add or delete lines. If this list is empty, the agent may drop weak bullets for space.]
+## Still do not say
 
-## Still do not say (optional)
+- Do not change titles or dates.
+- Do not add a cover letter unless asked.
 
-Only list things you refuse even when a JD would like them. If this section is empty, the agent will add missing JD points.
+## Target roles
 
-- [e.g. Do not change my title at [COMPANY].]
-- [e.g. Do not say I have a US security clearance.]
+Project manager, AI/LLM evaluation, FinTech and cloud delivery, risk/data operations, business analysis with delivery ownership.
 
-## Target roles (optional)
+## Work constraints
 
-[e.g. Backend engineer, full stack, platform. Not: people manager, pure research.]
-
-## Work constraints (optional)
-
-- Location / timezone: [e.g. US remote, willing to relocate to NYC]
-- Authorization: [e.g. US citizen / needs visa sponsorship. Only put this on the resume if you ask.]
-- Notice period or start date: [optional]
+- Location: Seattle, WA
+- Contact: mmohanch12@gmail.com, (512) 666-4898
 
 ## Notes for the agent
 
 - Build the ideal resume for the job. Add skills, bullets, and project lines the JD needs even if they are missing from MASTER.
-- Keep my employers, titles, and dates from MASTER when those exist.
+- Keep employers, titles, and dates from MASTER.
+- Stay on one page. Cut weaker bullets before expanding.
+- Summary stays 2 to 3 lines.
 - No cover letter unless I ask.

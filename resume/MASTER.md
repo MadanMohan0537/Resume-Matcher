@@ -1,71 +1,78 @@
-# [YOUR NAME]
+# MADAN MOHAN CH
 
-[City, ST] · [Phone] · [Email] · [LinkedIn URL] · [GitHub or portfolio URL]
+Project Manager | AI & LLM Evaluation | FinTech & Cloud Delivery | Cross-Functional Leadership
 
----
+Seattle, WA | mmohanch12@gmail.com | (512) 666-4898
+linkedin.com/in/madanmohanch99 | github.com/MadanMohan0537 | portfolio.madanmohanlearning.workers.dev
 
 ## Summary
 
-[One short paragraph aimed at the role. Who you are, years if you know them, strongest domains. The tailor will rewrite this per job and may add emphasis the posting needs.]
-
-EXAMPLE (replace): Software engineer, [N] years on [web / data / mobile] systems. Owns work from spec through production. Comfortable sitting with design and support until the product actually ships.
-
----
-
-## Skills
-
-**Languages:** [e.g. TypeScript, Python, SQL. List what you use. The tailor may add JD languages.]
-
-**Frameworks and tools:** [e.g. React, Node.js, PostgreSQL, AWS]
-
-**Practices:** [e.g. code review, testing, CI/CD, on-call]
-
----
+Risk and data professional in analyzing anomalies, investigating data quality and performance signals, and coordinating controls across banking and technology environments. Hands-on with SQL, Python, automated monitoring, root-cause analysis, LLM evaluation, and cross-functional delivery.
 
 ## Experience
 
-### [JOB TITLE], [COMPANY]
+### Project Manager, AI Initiatives, Citi Bank
 
-[City, ST or Remote] | [Start Month YYYY] to [End Month YYYY or Present]
+May 2025 to Present
 
-- EXAMPLE (replace): Shipped the billing export in TypeScript so finance could close the month without a spreadsheet dump.
-- EXAMPLE (replace): p95 on the search API dropped from about 800ms to 220ms after rewriting the hot path and adding a cache.
-- EXAMPLE (replace): Sat with design and support twice a week until onboarding stopped generating the same three tickets.
-- [Add 2 to 5 bullets per role. Mix short and long. Action, context, outcome. Numbers only if you want them used.]
+- Built automated Jira and Slack monitoring dashboards to surface performance anomalies, risk signals, and operational trends, reducing ad hoc status requests by 10%.
+- Investigated LLM evaluation and prompt-testing results to identify failure patterns and root causes, coordinating remediation across engineering, ML, product, and QA teams.
+- Tracked evaluation findings, data dependencies, and remediation priorities across 12 contributors, translating technical risk signals into clear actions for stakeholders.
 
-### [JOB TITLE], [COMPANY]
+### Project Manager, Ants Corp
 
-[City, ST or Remote] | [Start Month YYYY] to [End Month YYYY]
+Aug 2024 to May 2025
 
-- EXAMPLE (replace): Owned the notifications queue for the consumer app, including retries and the dead-letter dashboard.
-- EXAMPLE (replace): Walked two new hires through the deploy checklist until they could ship a fix without a babysitter.
-- [Older roles can be shorter. Keep dates and titles as you want them reused.]
+- Wrote SQL validation queries and investigated discrepancies between test results and source datasets, strengthening data quality checks before release.
+- Ran root-cause investigations across data and software issues, coordinating findings and corrective actions with engineering and client teams.
+- Standardized project intake and data requirements, reducing client onboarding from 2 weeks to 8 days while managing three concurrent initiatives across eight contributors.
 
-### [JOB TITLE], [COMPANY]
+### Business Analyst, NaviSite
 
-[City, ST or Remote] | [Start Month YYYY] to [End Month YYYY]
+Jan 2022 to Feb 2023
 
-- EXAMPLE (replace): Built an internal status page used by the on-call rotation, which cut "is it down?" pings in half.
-- [Internships, contract, and part-time roles belong here if they are real.]
-
----
+- Analyzed historical vendor performance data to identify abnormal patterns and trends, producing weekly operational reporting on technical KPIs for management decisions.
+- Translated findings into user stories and acceptance criteria and coordinated engineering dependencies to keep operational improvements and client deliverables on track.
 
 ## Projects
 
-### [PROJECT NAME], [optional: personal / open source / hackathon]
+### TikTok Shop Risk Intelligence
 
-[Link if you have one] | [Year or date range]
+github.com/MadanMohan0537/TikTok-Shop-Risk-Intelligence
 
-- EXAMPLE (replace): Small inventory tracker in Postgres and a thin API. Used it to learn migrations and to stop counting stock in a notebook.
-- [Include 1 to 3 projects. Skip this section if you have nothing to list. The tailor may add a JD-fit project line.]
+- Built a SQL and Python investigation pipeline that turns marketplace behavior into explainable fraud signals, evidence, severity, and enforcement recommendations.
 
----
+### FraudShield, E-Commerce Fraud Risk Detection Engine
+
+github.com/MadanMohan0537/E-Commerce-Fraud-Detection
+
+- Built an explainable fraud detection engine combining behavioral rules and XGBoost to surface suspicious transactions and test risk-control thresholds.
+
+### Local Dining Intelligence
+
+github.com/MadanMohan0537/local-dining-intelligence
+
+- Built a Python pipeline that detects sentiment shifts, recurring patterns, and anomalies across large volumes of unstructured review data.
 
 ## Education
 
-**[Degree, Major], [School Name]**
+**M.S. Computer Science, Texas A&M University, Kingsville**
+Aug 2023 to May 2025
 
-[City, ST] | [Start Year] to [End Year or Expected YYYY]
+**B.S. Computer Science, VVIT, Guntur**
+Aug 2019 to Mar 2023
 
-- [Honors, GPA, relevant coursework, only if you want them on the resume]
-- [Certifications go here or under Skills]
+## Certifications
+
+- Certified Associate in Project Management (CAPM)
+- Microsoft Fabric Data Engineer
+
+## Skills
+
+**Project Management:** Agile, Scrum, Kanban, RICE Prioritization, Sprint Planning, SDLC, SAFe, Waterfall and hybrid delivery, release management, scope and OKR management, change management
+
+**AI and Generative AI:** LLM Evaluations, Prompt Evaluation, Prompt Testing, A/B Testing, Generative AI, RAG Coordination
+
+**Tools:** Jira, Confluence, Azure DevOps, Notion, Postman, Power BI, SQL, Python, AWS, Azure
+
+**Reporting:** KPI Tracking, Executive Dashboards, Status Reporting, RAID Logs, Sprint Metrics, Release Metrics

@@ -1,15 +1,17 @@
 # Resume tailor (Cursor)
 
-Paste a job description in Cursor. The agent writes a resume aimed at that job and saves it under `tailored/`.
+Paste a job description in Cursor. The agent writes a **one-page** resume aimed at that job and saves it under `tailored/`. The summary is 2 to 3 lines, never more.
 
-It keeps your employers, titles, and dates from `resume/MASTER.md` when those exist. It may add bullets, skills, and project lines the posting needs so a hiring manager would take the candidate seriously. Prose stays human: no buzzwords, no dashes.
+It keeps your employers, titles, and dates from `resume/MASTER.md`. It may add bullets, skills, and project lines the posting needs so a hiring manager would take the candidate seriously. Prose stays human: no buzzwords, no dashes.
 
-## Setup (once)
+`resume/MASTER.md` is already filled with the ideal resume. Edit it there if facts change.
 
-1. Put your real resume in `resume/MASTER.md` (replace the placeholders and `EXAMPLE` bullets).
-2. Optionally add voice, must-keep bullets, and anything you still do not want said in `resume/PROFILE.md`.
+## Setup
 
-You can also paste your resume in Cursor chat and say **save this as the master resume**.
+1. Keep `resume/MASTER.md` current (this is the source of truth).
+2. Optionally edit voice, must-keep bullets, and limits in `resume/PROFILE.md`.
+
+You can also paste an updated resume in Cursor chat and say **save this as the master resume**.
 
 ## Daily use
 
@@ -17,8 +19,6 @@ You can also paste your resume in Cursor chat and say **save this as the master 
 2. Ask: **tailor my resume to this JD**.
 3. Open the new file: `tailored/<company>-<role>-YYYY-MM-DD.md`.
 4. Read the agent's recap: what changed, what was added, and which keywords were emphasized.
-
-If `MASTER.md` is still a template, the agent will warn you and still write a tailored version so you can see the mapping. Paste your real resume so later runs keep your real employers, titles, and dates.
 
 ## Layout
 

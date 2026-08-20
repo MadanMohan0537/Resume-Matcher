@@ -23,8 +23,11 @@ If the user names a file under `jobs/`, use that JD. If they paste a JD in chat,
 - **Build the ideal resume for the job.** Read the posting like a hiring manager. Cover the must-haves, the real work of the role, and the seniority they are buying.
 - **You may add points that are not in MASTER.** If the JD needs a responsibility, skill, tool, or accomplishment that is missing, write it in. Upgrade weak bullets. Rewrite the summary so it matches the role.
 - **Keep the employment skeleton** from MASTER when those facts exist: same employers, titles, and dates. Put new or upgraded bullets under those jobs. Do not invent extra companies if MASTER already lists a history. If MASTER is still a placeholder template, keep `[PLACEHOLDERS]` for name, contact, employers, dates, and school, and write strong example bullets under them.
+- **One page. Always.** Not two. Tight writing. Drop or compress lower-priority bullets rather than overflowing.
+- **Summary: 2 to 3 lines, never more than 3.** Prefer 2 if a third line would ramble. No paragraph dumps.
 - **No AI slop. Must look human-written.** See the writing rules below.
 - Honor `resume/PROFILE.md` when present (voice, must-keep bullets, anything the user explicitly banned).
+- `resume/MASTER.md` is the filled ideal resume (Madan Mohan Ch). Use it as the source of truth for structure, voice, employers, titles, dates, skills, and accomplishments.
 
 ## Writing rules (the resume must pass these)
 
@@ -94,16 +97,16 @@ Use today's date. If that file already exists, add `-2`, `-3`, etc. Do not overw
 
 ### 4. Write the resume as if you are hiring for this job
 
-- **Summary:** One short paragraph aimed at this role. Seniority, domain, and the two or three things this posting cares about. You may upgrade the story beyond MASTER.
+- **Summary:** 2 to 3 lines aimed at this role. Never more than 3. Prefer 2 if 3 would ramble. Seniority, domain, and the two or three things this posting cares about. You may retune the story beyond MASTER. No paragraph dumps.
 - **Skills:** Lead with what the JD lists. Add JD skills even if MASTER omitted them. Drop unrelated noise if space is tight.
 - **Experience:** Keep MASTER employers, titles, and dates when present. Reorder bullets *within* a job, not the jobs themselves.
   - Rewrite existing bullets so they speak to this JD.
   - **Add new bullets** when the JD expects work MASTER does not mention. Tie them to the closest real job.
-  - Drop bullets that do not help this application unless PROFILE marks them must-keep.
-- **Projects:** Lead with work that supports the JD. Add a project line if the posting needs proof MASTER does not have (a demo, an integration, a small system). Keep it specific.
-- **Education:** Keep MASTER school, degree, and dates when present. Add relevant coursework or a cert only if the JD would notice and PROFILE does not forbid it.
+  - Drop or compress bullets that do not help this application unless PROFILE marks them must-keep. **Cut before you overflow the page.**
+- **Projects:** Lead with work that supports the JD. Add a project line if the posting needs proof MASTER does not have. Keep it specific and short.
+- **Education and certifications:** Keep MASTER school, degree, dates, and certs when present.
 
-Length: one page for intern / early / mid career. Two pages max for senior+ or if PROFILE says so. About 3 to 5 bullets on the most recent role, 2 to 3 on older roles.
+**Length: one page. Always.** Not two. About 3 bullets on the most recent role, 2 to 3 on older roles. If content would spill to a second page, delete or compress the weakest lines (older bullets, extra projects, nice-to-have skills) until it fits.
 
 The tailored file is the resume only. No commentary, no cover letter, no HTML comments.
 
@@ -131,6 +134,8 @@ Do not reprint the full resume in chat unless the user asks.
 ## Quick checks before you finish
 
 - [ ] Reads as a fit for this exact job
+- [ ] Fits on **one page**
+- [ ] Summary is **2 to 3 lines**, never more
 - [ ] MASTER employers, titles, and dates kept when they existed
 - [ ] Missing JD points were added, not left as "gaps"
 - [ ] Zero em dashes, en dashes, or "X - Y" dashes in resume prose
