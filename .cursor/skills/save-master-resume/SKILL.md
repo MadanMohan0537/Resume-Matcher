@@ -20,7 +20,7 @@ Use this when the user provides their real resume (paste, attachment, or file pa
    - Optional extras they already have (certifications, publications, volunteer) — do not invent empty sections
 3. Preserve **every factual claim**: employers, titles, dates, locations, degrees, tools, metrics, bullets. Do not upgrade titles, round up numbers, or add impact they did not write.
 4. Light cleanup only: consistent heading levels, bullet markers, date formatting, obvious typos. Do not "improve" accomplishments while saving.
-5. Remove leftover template placeholders (`[YOUR NAME]`, `EXAMPLE —` bullets, etc.) unless the user's content still includes them on purpose.
+5. Remove leftover template placeholders (`[YOUR NAME]`, `EXAMPLE (replace):` bullets, etc.) unless the user's content still includes them on purpose.
 6. Overwrite `resume/MASTER.md`.
 7. Tell the user it is saved, list any sections that were missing (so they can add them), and remind them they can now paste a JD to tailor.
 

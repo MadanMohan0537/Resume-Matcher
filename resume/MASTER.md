@@ -6,66 +6,66 @@
 
 ## Summary
 
-[One short paragraph: who you are, years of experience if known, strongest domains, and the kind of role you want. Rewrite this per job — do not invent seniority or industries you have not worked in.]
+[One short paragraph aimed at the role. Who you are, years if you know them, strongest domains. The tailor will rewrite this per job and may add emphasis the posting needs.]
 
-EXAMPLE — replace this whole summary with your own: Product-minded software engineer with [N] years building [web / data / mobile] systems. Comfortable owning features from spec to production, collaborating with design and stakeholders, and leaving codebases clearer than you found them.
+EXAMPLE (replace): Software engineer, [N] years on [web / data / mobile] systems. Owns work from spec through production. Comfortable sitting with design and support until the product actually ships.
 
 ---
 
 ## Skills
 
-**Languages:** [e.g. TypeScript, Python, SQL — only list languages you actually use]
+**Languages:** [e.g. TypeScript, Python, SQL. List what you use. The tailor may add JD languages.]
 
-**Frameworks & tools:** [e.g. React, Node.js, PostgreSQL, AWS — only tools you have used]
+**Frameworks and tools:** [e.g. React, Node.js, PostgreSQL, AWS]
 
-**Practices:** [e.g. code review, testing, CI/CD, Agile — only practices you have really followed]
+**Practices:** [e.g. code review, testing, CI/CD, on-call]
 
 ---
 
 ## Experience
 
-### [JOB TITLE] — [COMPANY]
+### [JOB TITLE], [COMPANY]
 
-[City, ST or Remote] | [Start Month YYYY] – [End Month YYYY or Present]
+[City, ST or Remote] | [Start Month YYYY] to [End Month YYYY or Present]
 
-- EXAMPLE — replace with your own: Shipped [feature or system] that [outcome], using [tools you actually used].
-- EXAMPLE — replace with your own: Cut [latency / cost / errors] by [number only if you know it] after [specific change you made].
-- EXAMPLE — replace with your own: Partnered with [design / data / support / sales] to [result for users or the business].
-- [Add 2–5 real bullets per role. Action + context + impact. Prefer numbers you can defend.]
+- EXAMPLE (replace): Shipped the billing export in TypeScript so finance could close the month without a spreadsheet dump.
+- EXAMPLE (replace): p95 on the search API dropped from about 800ms to 220ms after rewriting the hot path and adding a cache.
+- EXAMPLE (replace): Sat with design and support twice a week until onboarding stopped generating the same three tickets.
+- [Add 2 to 5 bullets per role. Mix short and long. Action, context, outcome. Numbers only if you want them used.]
 
-### [JOB TITLE] — [COMPANY]
+### [JOB TITLE], [COMPANY]
 
-[City, ST or Remote] | [Start Month YYYY] – [End Month YYYY]
+[City, ST or Remote] | [Start Month YYYY] to [End Month YYYY]
 
-- EXAMPLE — replace with your own: Owned [area] for [team or product], including [responsibilities you really had].
-- EXAMPLE — replace with your own: Mentored [N] teammates on [topic] / improved [process] so [result].
-- [Older roles can be shorter. Keep dates and titles exact.]
+- EXAMPLE (replace): Owned the notifications queue for the consumer app, including retries and the dead-letter dashboard.
+- EXAMPLE (replace): Walked two new hires through the deploy checklist until they could ship a fix without a babysitter.
+- [Older roles can be shorter. Keep dates and titles as you want them reused.]
 
-### [JOB TITLE] — [COMPANY]
+### [JOB TITLE], [COMPANY]
 
-[City, ST or Remote] | [Start Month YYYY] – [End Month YYYY]
+[City, ST or Remote] | [Start Month YYYY] to [End Month YYYY]
 
-- EXAMPLE — replace with your own: Built [project] used by [who], which [impact].
-- [Internships, contract, and part-time roles belong here if they are real. Do not inflate titles.]
+- EXAMPLE (replace): Built an internal status page used by the on-call rotation, which cut "is it down?" pings in half.
+- [Internships, contract, and part-time roles belong here if they are real.]
 
 ---
 
 ## Projects
 
-### [PROJECT NAME] — [optional: personal / open source / hackathon]
+### [PROJECT NAME], [optional: personal / open source / hackathon]
 
 [Link if you have one] | [Year or date range]
 
-- EXAMPLE — replace with your own: Built [what it does] with [stack you used]; [users, stars, or outcome only if true].
-- [Include 1–3 projects that show skills not obvious from work history. Skip this section if you have nothing real to list.]
+- EXAMPLE (replace): Small inventory tracker in Postgres and a thin API. Used it to learn migrations and to stop counting stock in a notebook.
+- [Include 1 to 3 projects. Skip this section if you have nothing to list. The tailor may add a JD-fit project line.]
 
 ---
 
 ## Education
 
-**[Degree, Major]** — [School Name]
+**[Degree, Major], [School Name]**
 
-[City, ST] | [Start Year] – [End Year or Expected YYYY]
+[City, ST] | [Start Year] to [End Year or Expected YYYY]
 
-- [Honors, GPA, relevant coursework — only if you want them on the resume]
-- [Certifications go here or under Skills, and only if you actually hold them]
+- [Honors, GPA, relevant coursework, only if you want them on the resume]
+- [Certifications go here or under Skills]

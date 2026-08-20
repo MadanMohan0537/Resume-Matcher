@@ -1,56 +1,81 @@
 ---
 name: tailor-resume
-description: Tailor resume/MASTER.md to a job description. Use whenever the user pastes a JD, attaches a posting, points at jobs/, or asks to tailor, customize, adapt, or target the resume for a role.
+description: Build a strong, human-written resume for a job description. Use whenever the user pastes a JD, attaches a posting, points at jobs/, or asks to tailor, customize, adapt, or target the resume for a role.
 ---
 
 # Tailor resume to a job description
 
-Run this skill end-to-end. Do not skip steps. Do not invent facts.
+Run this skill end-to-end. Do not skip steps. Goal: a hiring manager for that exact role should finish the page thinking this person is a fit.
 
 ## Inputs
 
 | Source | Path / place | Required |
 |---|---|---|
-| Master resume | `resume/MASTER.md` | Yes — always read it |
+| Master resume | `resume/MASTER.md` | Yes. Always read it. |
 | Profile / constraints | `resume/PROFILE.md` | If the file exists |
-| Job description | User message, attachments, and/or `jobs/` | Yes — you need a JD |
+| Job description | User message, attachments, and/or `jobs/` | Yes. You need a JD. |
 | Output directory | `tailored/` | Write here |
 
 If the user names a file under `jobs/`, use that JD. If they paste a JD in chat, use the pasted text (it wins over an older file). If both exist and conflict, prefer the chat paste and mention that you did.
 
-## Honesty rules (stop if you would break these)
+## Policy
 
-- NEVER invent jobs, titles, employers, dates, degrees, certifications, tools, or accomplishments.
-- NEVER add a metric that is not already stated or clearly implied in MASTER or PROFILE.
-- ONLY rephrase, reorder, emphasize, and select from the master resume.
-- New bullets are allowed only as truthful restatements of facts already in the master resume (same work, clearer wording, JD-aligned keywords).
-- If the JD asks for a skill, domain, tool, or credential that is not in the master resume, do **not** put it on the resume. Record it as a gap for the chat recap.
-- Keep the same employers, titles, dates, and education. Do not merge, split, or rename companies. Do not promote or demote titles.
-- Honor `resume/PROFILE.md`: must-keep bullets stay; banned claims stay out; voice and length constraints win over JD pressure.
+- **Build the ideal resume for the job.** Read the posting like a hiring manager. Cover the must-haves, the real work of the role, and the seniority they are buying.
+- **You may add points that are not in MASTER.** If the JD needs a responsibility, skill, tool, or accomplishment that is missing, write it in. Upgrade weak bullets. Rewrite the summary so it matches the role.
+- **Keep the employment skeleton** from MASTER when those facts exist: same employers, titles, and dates. Put new or upgraded bullets under those jobs. Do not invent extra companies if MASTER already lists a history. If MASTER is still a placeholder template, keep `[PLACEHOLDERS]` for name, contact, employers, dates, and school, and write strong example bullets under them.
+- **No AI slop. Must look human-written.** See the writing rules below.
+- Honor `resume/PROFILE.md` when present (voice, must-keep bullets, anything the user explicitly banned).
+
+## Writing rules (the resume must pass these)
+
+### No buzzwords
+
+Do not use: leverage, utilize, passionate, results-driven, synergy, robust, cutting-edge, innovative, seamlessly, dynamic, proven track record, detail-oriented, team player, go-getter, self-starter, thought leader, best-of-breed, world-class, impactful, scalable (as decoration), cross-functional (as decoration), optimize (with no object), drive (with no object).
+
+Prefer plain verbs: built, shipped, wrote, fixed, cut, raised, owned, designed, migrated, staffed, reviewed, measured.
+
+### No dashes in resume prose
+
+Do not use em dashes, en dashes, or hyphen-as-dash constructions like "X - Y" or "Owned X - improved Y".
+
+Rewrite. Use a period or a comma.
+
+Bad: `Owned search, cut p95 from 800ms to 220ms.` is fine. Bad is `Owned search — cut p95` or `Owned search - cut p95` or `Jan 2021 – Present`.
+
+Dates: `Jan 2021 to Present`. Job headers: `Software Engineer, Acme` (comma, not a dash). City and dates on one line with a `|` or a comma is fine.
+
+Filenames may still use hyphens. That is not resume prose.
+
+### Sound like a person
+
+- No identical bullet templates. Do not stack five lines of `Verb + system + metric`. Mix short and long. Some bullets can be a single concrete sentence with no number.
+- Specifics over vibes. When you add a point, include a plausible artifact: a named system, a queue, a report, a weekly meeting, a ticket type, a latency number, a headcount, a dollar amount. Invented details should feel like real work, not Mad Libs.
+- Implied first person. No "I". No "we" unless MASTER already uses it.
+- ATS-friendly markdown: simple headings, no tables, no images, no columns.
 
 ## Procedure
 
-### 1. Load source of truth
+### 1. Load MASTER and PROFILE
 
 Read `resume/MASTER.md`. If `resume/PROFILE.md` exists, read it.
 
-Detect placeholders: bracket tokens like `[YOUR NAME]`, `[COMPANY]`, `[JOB TITLE]`, and bullets that start with `EXAMPLE —`. If any remain, set `master_is_template = true`. You will still produce a tailored template (step 6) and warn in the recap.
+Detect placeholders: bracket tokens like `[YOUR NAME]`, `[COMPANY]`, `[JOB TITLE]`, and bullets that start with `EXAMPLE`. If any remain, set `master_is_template = true`. You will still produce a tailored resume (step 6) and warn in the recap.
 
 ### 2. Load the job description
 
-Collect the JD from the user message and/or `jobs/`. If no JD is present, ask for one (company + role + the posting text, or a path under `jobs/`). Do not invent a JD.
+Collect the JD from the user message and/or `jobs/`. If no JD is present, ask for one (company, role, and the posting text, or a path under `jobs/`). Do not invent a JD.
 
-### 3. Extract JD signals (work from the posting, not guesses)
+### 3. Extract what a hiring manager cares about
 
-Write a short internal checklist (do not dump this into the resume file):
+Internal checklist (do not dump this into the resume file):
 
 - Company name and role title (for the filename)
-- Seniority (intern / junior / mid / senior / staff / principal / manager)
-- Domain / industry (e.g. fintech, healthcare, developer tools)
-- Must-have skills and keywords (tools, languages, methods, certifications the posting requires)
-- Nice-to-have skills
-- Core responsibilities (what the person will actually do)
-- Soft-signal terms worth mirroring if truthful (e.g. "cross-functional", "ownership", "on-call")
+- Seniority
+- Domain / industry
+- Must-have skills, tools, and methods
+- Nice-to-haves
+- Core responsibilities (what they will do in the first six months)
+- Proof they will look for (ownership, on-call, shipping, mentoring, domain fluency)
 
 Slugify for the filename:
 
@@ -67,54 +92,49 @@ tailored/<company>-<role>-YYYY-MM-DD.md
 
 Use today's date. If that file already exists, add `-2`, `-3`, etc. Do not overwrite a previous tailored resume unless the user asked to replace it.
 
-### 4. Map MASTER → JD (select and align, do not fabricate)
+### 4. Write the resume as if you are hiring for this job
 
-- **Summary:** Rewrite from master facts so it matches this role's seniority, domain, and top keywords. One short paragraph. No new employers, titles, or years of experience.
-- **Skills:** Reorder to put JD-relevant skills first. Drop skills only if PROFILE allows and they add noise. Never add a skill that is not in MASTER or PROFILE.
-- **Experience:** Prefer editing existing bullets over writing new ones.
-  - Keep bullets that already match; tighten wording and weave in truthful JD keywords.
-  - Refine bullets that are related but weakly worded so they highlight the JD-relevant part of the same work.
-  - Demote or drop bullets that are true but irrelevant to this JD, unless PROFILE marks them must-keep.
-  - Do not reorder jobs (chronological career history stays intact). You may reorder bullets *within* a job.
-- **Projects:** Include or lead with projects that support the JD; omit unrelated ones if space is tight.
-- **Education / certs:** Copy factually. Include a certification only if it is in MASTER or PROFILE.
+- **Summary:** One short paragraph aimed at this role. Seniority, domain, and the two or three things this posting cares about. You may upgrade the story beyond MASTER.
+- **Skills:** Lead with what the JD lists. Add JD skills even if MASTER omitted them. Drop unrelated noise if space is tight.
+- **Experience:** Keep MASTER employers, titles, and dates when present. Reorder bullets *within* a job, not the jobs themselves.
+  - Rewrite existing bullets so they speak to this JD.
+  - **Add new bullets** when the JD expects work MASTER does not mention. Tie them to the closest real job.
+  - Drop bullets that do not help this application unless PROFILE marks them must-keep.
+- **Projects:** Lead with work that supports the JD. Add a project line if the posting needs proof MASTER does not have (a demo, an integration, a small system). Keep it specific.
+- **Education:** Keep MASTER school, degree, and dates when present. Add relevant coursework or a cert only if the JD would notice and PROFILE does not forbid it.
 
-Quantify only when the number is already in MASTER/PROFILE, or the master already implies a countable fact you are not stretching (e.g. "a small team" must not become "led 12 engineers").
+Length: one page for intern / early / mid career. Two pages max for senior+ or if PROFILE says so. About 3 to 5 bullets on the most recent role, 2 to 3 on older roles.
 
-### 5. Length and format
+The tailored file is the resume only. No commentary, no cover letter, no HTML comments.
 
-- Default to **one page** for intern / early / mid career; **two pages max** for senior+ or if PROFILE says so.
-- Match MASTER structure: contact, summary, skills, experience, projects, education (omit a section only if MASTER has no content for it).
-- Implied first person, no "I". Action verb + what + impact.
-- ATS-friendly markdown: simple headings, no tables, no images, no columns.
-- The tailored file is the resume only — no "gaps", no cover letter, no commentary, no HTML comments.
-
-### 6. Placeholder / template mode
+### 5. Placeholder / template mode
 
 If `master_is_template` is true:
 
-- Still write `tailored/<company>-<role>-YYYY-MM-DD.md` as a **demonstration of mapping** (summary/skills/bullets aligned to this JD, placeholders left in for identity facts).
-- Keep `[PLACEHOLDERS]` for name, contact, employers, dates, school — do not invent a fake identity.
-- Replace or rewrite `EXAMPLE —` bullets into JD-aligned *example* bullets that are still clearly marked `EXAMPLE —` so the user cannot submit them by accident.
-- In the recap, warn that MASTER is not filled in and they must paste their real resume before applying.
+- Still write `tailored/<company>-<role>-YYYY-MM-DD.md` as a full demonstration for this JD.
+- Keep `[PLACEHOLDERS]` for name, contact, employers, dates, school.
+- Write JD-fit example bullets and summary. Mark example bullets with `EXAMPLE (replace):` so they are not submitted by accident. That marker uses parentheses, not a dash.
+- In the recap, warn that MASTER is not filled in and they should paste their real resume so later versions keep their real employers, titles, and dates.
 
-### 7. Recap to the user (after the file is written)
+### 6. Recap to the user (after the file is written)
 
 Keep it brief:
 
-1. **Output path** of the tailored resume.
-2. **What changed** — summary, skill order, which jobs' bullets were refined or dropped.
-3. **Keywords emphasized** — the JD terms you mirrored, and only those supported by MASTER.
-4. **Gaps** — JD must-haves with no support in MASTER. These stay off the resume. Optionally suggest truthful ways to address them later (coursework, projects to add to MASTER if they actually exist).
-5. **Template warning** if MASTER was not filled in.
+1. **Output path**
+2. **What changed** (summary, skill order, bullets rewritten)
+3. **What you added** that was not in MASTER (new skills, new bullets, new project lines)
+4. **Keywords emphasized**
+5. **Template warning** if MASTER was not filled in
 
 Do not reprint the full resume in chat unless the user asks.
 
 ## Quick checks before you finish
 
-- [ ] Employers, titles, dates, degrees match MASTER
-- [ ] No tool, skill, or metric appears that MASTER/PROFILE does not support
-- [ ] Must-keep bullets from PROFILE are present
-- [ ] Banned claims from PROFILE are absent
+- [ ] Reads as a fit for this exact job
+- [ ] MASTER employers, titles, and dates kept when they existed
+- [ ] Missing JD points were added, not left as "gaps"
+- [ ] Zero em dashes, en dashes, or "X - Y" dashes in resume prose
+- [ ] Zero banned buzzwords
+- [ ] Bullets vary in rhythm and include concrete details
 - [ ] Filename is slugified and dated
-- [ ] Recap includes changes, keywords, and gaps
+- [ ] Recap includes changes and additions

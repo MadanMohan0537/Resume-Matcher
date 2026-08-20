@@ -1,11 +1,11 @@
 ---
-description: Always-on resume tailoring — when a JD appears, tailor MASTER.md; when the user pastes a resume to save, update MASTER.md.
+description: Always-on resume tailoring. When a JD appears, build the strongest resume for that job. When the user pastes a resume to save, update MASTER.md.
 alwaysApply: true
 ---
 
 # Resume tailoring (always on)
 
-This workspace exists to tailor one master resume to each job description. Treat every JD the user sends as a tailoring request unless they clearly ask for something else (for example: only extract keywords, or only update the master).
+This workspace exists to produce a resume a hiring manager would take seriously for that exact job. Treat every JD the user sends as a tailoring request unless they clearly ask for something else (for example: only extract keywords, or only update the master).
 
 ## When the user sends a job description
 
@@ -14,14 +14,15 @@ A tailoring request includes any of:
 - Pasting a JD, posting, or "About the role" text in chat
 - Attaching a JD file
 - Pointing at `jobs/<file>`
-- Asking to tailor / customize / adapt / target the resume for a role or company
+- Asking to tailor, customize, adapt, or target the resume for a role or company
 
 Then you MUST:
 
 1. Read and follow `.cursor/skills/tailor-resume/SKILL.md` (do not improvise a different pipeline).
 2. Read `resume/MASTER.md` and `resume/PROFILE.md` (if present) before writing anything.
 3. Write output to `tailored/<company>-<role>-YYYY-MM-DD.md` (slugify company and role).
-4. After writing, tell the user what changed, which JD keywords were emphasized, and any JD requirements the master resume does not support.
+4. Build the **ideal resume for that job**. Think like the hiring manager. Add missing responsibilities, skills, and accomplishments when the JD needs them.
+5. After writing, tell the user what changed, what you added, and which JD keywords you emphasized.
 
 ## When the user wants to save a master resume
 
@@ -29,16 +30,16 @@ If they paste resume content and say to save it as the master (or "this is my re
 
 1. Follow `.cursor/skills/save-master-resume/SKILL.md`.
 2. Overwrite `resume/MASTER.md` with their content, preserving a clean markdown structure.
-3. Do not invent missing sections; keep what they provided.
+3. Keep what they provided. Do not rewrite it into a tailored resume unless they also gave a JD and asked for both.
 
-## Honesty (never violate)
+## Writing policy (non-negotiable)
 
-- NEVER invent jobs, titles, employers, dates, degrees, certifications, tools, or accomplishments the candidate did not have.
-- ONLY rephrase, reorder, emphasize, quantify (only if already implied/known), and select from the master resume.
-- Mirror JD keywords naturally when they are truthful matches to master-resume facts.
-- If the JD requires something absent from the master resume, omit it from the resume and list it as a **gap in chat** (not on the resume).
-- Keep the same factual career history.
+- **Fit first.** The tailored resume should read as if this person is a strong hire for that posting.
+- **You may add points that are not in MASTER.** Invent or upgrade bullets, skills, summary lines, and project lines when a hiring manager would expect them.
+- **Keep the employment skeleton** from MASTER when it exists: employers, titles, and dates. Hang new bullets on those real jobs. Do not invent extra employers if MASTER already has a career history.
+- **No AI slop.** No buzzwords. No dashes in resume prose (no em dash, no en dash, no "X - Y" constructions). Vary sentence rhythm. Use concrete, plausible details.
+- Honor `resume/PROFILE.md` voice and any must-keep or banned lines the user listed.
 
 ## Placeholders
 
-If MASTER still has `[BRACKET PLACEHOLDERS]` or `EXAMPLE —` bullets, warn the user that the master is still a template, produce a tailored template anyway so they can see the mapping, and tell them to paste their real resume into `resume/MASTER.md`.
+If MASTER still has `[BRACKET PLACEHOLDERS]` or `EXAMPLE` bullets, warn the user, still produce a tailored resume that shows the mapping, and tell them to paste their real resume into `resume/MASTER.md` so later versions keep their real employers, titles, and dates.
