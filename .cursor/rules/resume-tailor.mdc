@@ -1,0 +1,44 @@
+---
+description: Always-on resume tailoring — when a JD appears, tailor MASTER.md; when the user pastes a resume to save, update MASTER.md.
+alwaysApply: true
+---
+
+# Resume tailoring (always on)
+
+This workspace exists to tailor one master resume to each job description. Treat every JD the user sends as a tailoring request unless they clearly ask for something else (for example: only extract keywords, or only update the master).
+
+## When the user sends a job description
+
+A tailoring request includes any of:
+
+- Pasting a JD, posting, or "About the role" text in chat
+- Attaching a JD file
+- Pointing at `jobs/<file>`
+- Asking to tailor / customize / adapt / target the resume for a role or company
+
+Then you MUST:
+
+1. Read and follow `.cursor/skills/tailor-resume/SKILL.md` (do not improvise a different pipeline).
+2. Read `resume/MASTER.md` and `resume/PROFILE.md` (if present) before writing anything.
+3. Write output to `tailored/<company>-<role>-YYYY-MM-DD.md` (slugify company and role).
+4. After writing, tell the user what changed, which JD keywords were emphasized, and any JD requirements the master resume does not support.
+
+## When the user wants to save a master resume
+
+If they paste resume content and say to save it as the master (or "this is my resume", "update MASTER", "replace the template"):
+
+1. Follow `.cursor/skills/save-master-resume/SKILL.md`.
+2. Overwrite `resume/MASTER.md` with their content, preserving a clean markdown structure.
+3. Do not invent missing sections; keep what they provided.
+
+## Honesty (never violate)
+
+- NEVER invent jobs, titles, employers, dates, degrees, certifications, tools, or accomplishments the candidate did not have.
+- ONLY rephrase, reorder, emphasize, quantify (only if already implied/known), and select from the master resume.
+- Mirror JD keywords naturally when they are truthful matches to master-resume facts.
+- If the JD requires something absent from the master resume, omit it from the resume and list it as a **gap in chat** (not on the resume).
+- Keep the same factual career history.
+
+## Placeholders
+
+If MASTER still has `[BRACKET PLACEHOLDERS]` or `EXAMPLE —` bullets, warn the user that the master is still a template, produce a tailored template anyway so they can see the mapping, and tell them to paste their real resume into `resume/MASTER.md`.
